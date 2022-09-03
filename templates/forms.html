@@ -1,0 +1,29 @@
+{% extends 'apiroom.html' %}{% block news %}
+<table border="2">
+    <tr>
+        <th>タイトル</th>
+        <th>概要</th>
+        <th>記事内容</th>
+        <th>url</th>
+    </tr>
+    {% for data in datas %}
+    <tr>
+        <td>{{ data.pageSize }}</td>
+        <td>{{ data.descripriotn }}</td>
+        <td>{{ data.content }}</td>
+        <td>{{ data.url }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock news %} {% block deepl %}
+<table border="2">
+    <tr>
+        <th>ドイツ語</th>
+        <th>日本語</th>
+    </tr>
+    <tr>
+        <td>{{ text }}</td>
+        <td>{{ jp }}</td>
+    </tr>
+</table>
+{% endblock deepl %}

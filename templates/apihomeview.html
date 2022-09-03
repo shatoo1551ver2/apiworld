@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block header %}
+<div class="jumbotron">
+    <h1 class="display-4">API_WORLD</h1>
+    <p class="lead">list of Api</p>
+    <p>{{ a }}</p>
+</div>
+</div>
+
+{% endblock header %} {% block content %}
+<h3>APIを登録する</h3>
+<form action='apiregiview'>
+    <input type="submit" value="登録">
+</form>
+<form action='/'>
+    <input type="submit" value="ホームに戻る">
+</form>
+<form action='api_room'>
+    <input type="submit" value="newapiへ">
+</form>
+<div class="container">
+    <ul class="list-group list-group-flush">
+        <table border="2">
+            <tr>
+                <th>apiの名前</th>
+                <th>説明</th>
+                <th>アクセス</th>
+                <th>削除</th>
+            </tr>
+            {% for api in apis %}
+            <tr>
+                <td>{{ api.name }}</td>
+                <td>{{ api.describe }}</td>
+                <td>
+                    <a href="{% url 'api_room' api.id %}">roomへ</a>
+                </td>
+                <td>
+                    <a href="{% url 'api_delete' api.id %}">削除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </ul>
+</div>
+{% endblock content %}

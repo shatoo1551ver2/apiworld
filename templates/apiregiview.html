@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block header %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">API登録</h1>
+        <p class="lead">Enter the URL</p>
+        <a href="/home_api">ホームに戻る</a>
+    </div>
+</div>
+{% endblock header %} {% block content %}
+<div class="container">
+    <form action='api_regi' method='POST'>{% csrf_token %} {{ form.as_p }}
+        <input type="submit" value="登録する">
+    </form>
+    <form action='home_api'>
+        <input type="submit" value="API_WORLDへ">
+    </form>
+</div>
+{% endblock content %}

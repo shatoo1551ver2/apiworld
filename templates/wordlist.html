@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block header %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">SentenceList</h1>
+    </div>
+</div>
+{% endblock header %} {% block content %}
+<div class="container">
+    <ul class="list-group list-group-flush">
+        <table border="2">
+            <tr>
+                <th>No</th>
+                <th>記事内容</th>
+                {% for sentencedata in sentencelist %}
+                <tr>
+                    <td>{{ sentencedata.id }}</td>
+                    <td>{{ sentencedata.sentence_de }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+    </ul>
+    {% for i in sentence_jps %} {{i}} {% endfor %}
+
+</div>
+{% endblock content %}

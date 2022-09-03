@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block header %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">ApiRoom</h1>
+        {{ api.name }}
+        <p class="lead"></p>
+        <a href="/home_api">戻る</a>
+    </div>
+</div>
+{% endblock header %} {% block content %}
+<div class="container">
+    <form href="{% url 'apidatacreate' api.id %}" method='POST'>{% csrf_token %} {{ form.as_p }}
+        <input type="submit" value="検索する">
+    </form>
+</div>
+</tr>
+{% if api_id == 6 %} {% block news %} {% endblock news %} {% elif api_id == 11 %} {% block deepl %} {% endblock deepl %} {% endif%} {% endblock content %}

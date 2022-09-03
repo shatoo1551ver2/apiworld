@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block header %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">News</h1>
+    </div>
+</div>
+{% endblock header %} {% block content %}
+<div class="container">
+    <ul class="list-group list-group-flush">
+        <table border="2">
+            <tr>
+                <th>タイトル</th>
+                <th>URL</th>
+            </tr>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article.title }}</td>
+                <td><a href="{{ article.url }}">{{ article.url }}</a></td>
+                <td>
+                    <a href="{% url 'wordlist' article.id %}">記事へ</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </ul>
+</div>
+{% endblock content %}
